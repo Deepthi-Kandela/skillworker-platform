@@ -5,3 +5,4 @@ build/
 *.log
 *.zip
 *.mp4
+package-lock.json
