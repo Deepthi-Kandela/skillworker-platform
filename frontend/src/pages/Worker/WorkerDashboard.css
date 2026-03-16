@@ -1,0 +1,121 @@
+/* Page */
+.wd-page { padding: 28px 24px; background: #f5f5ff; min-height: 100vh; }
+
+/* Header */
+.wd-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 28px; }
+.wd-title { font-size: 1.8rem; font-weight: 800; color: #1a1a2e; margin: 0 0 4px; }
+.wd-subtitle { color: #888; font-size: 0.9rem; margin: 0; }
+.wd-header-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+
+/* Availability Toggle */
+.wd-avail-toggle {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 18px; border-radius: 24px; border: none;
+  font-size: 0.9rem; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s;
+}
+.wd-avail-toggle.on  { background: #edfff5; color: #1a9e5c; border: 2px solid #43E97B; }
+.wd-avail-toggle.off { background: #fff0f3; color: #c0392b; border: 2px solid #FF6584; }
+
+/* Stat Cards */
+.wd-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+.wd-stat-card {
+  background: #fff; border-radius: 16px; padding: 20px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left: 4px solid var(--card-color);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wd-stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+.wd-stat-icon { font-size: 2rem; width: 52px; height: 52px; border-radius: 14px; background: var(--card-bg); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.wd-stat-info { flex: 1; }
+.wd-stat-val { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; margin: 0; }
+.wd-stat-label { font-size: 0.8rem; color: #888; margin: 2px 0 0; }
+.wd-stat-trend { color: #43E97B; opacity: 0.6; }
+
+/* Profile Row */
+.wd-profile-row { display: grid; grid-template-columns: 1fr 280px; gap: 20px; margin-bottom: 28px; }
+.wd-profile-card { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.wd-profile-top { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; }
+.wd-profile-info h3 { font-size: 1.2rem; font-weight: 800; color: #1a1a2e; margin: 0 0 8px; }
+.wd-profile-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.85rem; color: #666; }
+.wd-profile-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+.wd-badge { padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+.wd-badge.green  { background: #edfff5; color: #1a9e5c; }
+.wd-badge.yellow { background: #fff8ee; color: #b7791f; }
+.wd-badge.red    { background: #fff0f3; color: #c0392b; }
+
+/* Progress */
+.wd-progress-section { display: flex; flex-direction: column; gap: 14px; }
+.wd-progress-item {}
+.wd-progress-label { display: flex; justify-content: space-between; font-size: 0.82rem; color: #666; font-weight: 600; margin-bottom: 6px; }
+.wd-progress-bar { height: 8px; background: #f0f0f0; border-radius: 10px; overflow: hidden; }
+.wd-progress-fill { height: 100%; border-radius: 10px; transition: width 0.6s ease; }
+.wd-progress-fill.green  { background: linear-gradient(90deg, #43E97B, #38f9d7); }
+.wd-progress-fill.yellow { background: linear-gradient(90deg, #F7971E, #FFD200); }
+.wd-progress-fill.purple { background: linear-gradient(90deg, #6C63FF, #a78bfa); }
+
+/* Quick Stats */
+.wd-quick-stats { background: #fff; border-radius: 16px; padding: 24px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.wd-quick-stats h4 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin: 0 0 16px; }
+.wd-quick-item { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid #f5f5f5; font-size: 0.9rem; color: #555; }
+.wd-quick-item:last-child { border-bottom: none; }
+.wd-quick-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.wd-quick-item span { flex: 1; }
+.wd-quick-item strong { font-size: 1.1rem; font-weight: 800; }
+
+/* Section Header */
+.wd-section-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+.wd-section-header h3 { font-size: 1.1rem; font-weight: 700; color: #1a1a2e; margin: 0; }
+.wd-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.wd-filter-btn { padding: 7px 16px; border-radius: 20px; border: 1.5px solid #e0e0e0; background: #fff; font-size: 0.82rem; font-weight: 600; cursor: pointer; color: #666; font-family: inherit; transition: all 0.2s; }
+.wd-filter-btn.active { background: #6C63FF; color: #fff; border-color: #6C63FF; }
+.wd-filter-btn:hover:not(.active) { border-color: #6C63FF; color: #6C63FF; }
+
+/* Booking Cards */
+.wd-bookings { display: flex; flex-direction: column; gap: 14px; }
+.wd-booking-card {
+  background: #fff; border-radius: 16px; padding: 20px;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  border-left: 4px solid #e0e0e0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wd-booking-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+.wd-booking-card.status-pending     { border-left-color: #F7971E; }
+.wd-booking-card.status-accepted    { border-left-color: #43E97B; }
+.wd-booking-card.status-in-progress { border-left-color: #6C63FF; }
+.wd-booking-card.status-completed   { border-left-color: #2196F3; }
+.wd-booking-card.status-rejected    { border-left-color: #FF6584; }
+
+.wd-booking-left { display: flex; gap: 14px; align-items: flex-start; flex: 1; }
+.wd-booking-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #f0eeff; flex-shrink: 0; }
+.wd-booking-left h4 { font-size: 1rem; font-weight: 700; color: #1a1a2e; margin: 0 0 3px; }
+.wd-booking-customer { font-size: 0.85rem; color: #888; margin: 0 0 6px; }
+.wd-booking-meta { display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.78rem; color: #aaa; }
+.wd-booking-meta span { display: flex; align-items: center; gap: 4px; }
+.wd-booking-desc { font-size: 0.82rem; color: #999; margin: 6px 0 0; font-style: italic; }
+
+.wd-booking-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; flex-shrink: 0; }
+.wd-booking-amount { font-size: 1.3rem; font-weight: 800; color: #6C63FF; margin: 0; }
+.wd-booking-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+
+/* Action Buttons */
+.wd-action-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 18px; border-radius: 10px; border: none;
+  font-size: 0.88rem; font-weight: 700; cursor: pointer;
+  font-family: inherit; transition: all 0.2s; min-height: 42px;
+}
+.wd-action-btn.accept   { background: #edfff5; color: #1a9e5c; border: 1.5px solid #43E97B; }
+.wd-action-btn.accept:hover { background: #43E97B; color: #fff; }
+.wd-action-btn.reject   { background: #fff0f3; color: #c0392b; border: 1.5px solid #FF6584; }
+.wd-action-btn.reject:hover { background: #FF6584; color: #fff; }
+.wd-action-btn.start    { background: #f0eeff; color: #6C63FF; border: 1.5px solid #6C63FF; }
+.wd-action-btn.start:hover { background: #6C63FF; color: #fff; }
+.wd-action-btn.complete { background: #e3f2fd; color: #1565c0; border: 1.5px solid #2196F3; }
+.wd-action-btn.complete:hover { background: #2196F3; color: #fff; }
+
+/* Responsive */
+@media (max-width: 1024px) { .wd-stats { grid-template-columns: repeat(2, 1fr); } .wd-profile-row { grid-template-columns: 1fr; } }
+@media (max-width: 600px)  { .wd-stats { grid-template-columns: 1fr 1fr; } .wd-booking-card { flex-direction: column; } .wd-booking-right { align-items: flex-start; } }

@@ -1,0 +1,204 @@
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-left {
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.auth-left-content { color: #fff; text-align: center; max-width: 360px; }
+.auth-logo { font-size: 1.8rem; font-weight: 800; margin-bottom: 24px; }
+.auth-left-content h2 { font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+.auth-left-content p { opacity: 0.85; font-size: 1rem; line-height: 1.7; margin-bottom: 30px; }
+.auth-illustration { font-size: 6rem; }
+
+.auth-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: var(--bg);
+  overflow-y: auto;
+}
+
+.auth-card {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 40px;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: var(--shadow);
+}
+
+.auth-title { font-size: 1.7rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+.auth-subtitle { color: var(--text-light); margin-bottom: 28px; font-size: 0.95rem; }
+
+.input-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-light);
+  font-size: 1rem;
+  z-index: 1;
+}
+.input-icon-wrap .form-control { padding-left: 38px; }
+
+.pass-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.role-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  background: var(--bg);
+  padding: 6px;
+  border-radius: var(--radius-sm);
+}
+.role-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-light);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.role-btn.active { background: var(--primary); color: #fff; box-shadow: 0 2px 8px rgba(108,99,255,0.3); }
+
+.auth-divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+.auth-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0; right: 0;
+  height: 1px;
+  background: var(--border);
+}
+.auth-divider span {
+  background: #fff;
+  padding: 0 12px;
+  position: relative;
+  color: var(--text-light);
+  font-size: 0.85rem;
+}
+
+.demo-accounts {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.demo-btn {
+  flex: 1;
+  padding: 8px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.demo-btn:hover { border-color: var(--primary); color: var(--primary); background: rgba(108,99,255,0.05); }
+
+.auth-switch { text-align: center; color: var(--text-light); font-size: 0.9rem; margin-top: 16px; }
+.auth-switch a { color: var(--primary); font-weight: 600; }
+
+/* OTP Styles */
+.otp-phone-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.otp-send-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+  min-height: 44px;
+}
+
+.otp-verified-badge {
+  color: #43E97B;
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.otp-box {
+  background: #f8f8ff;
+  border: 1.5px solid var(--primary);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.otp-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+
+.otp-input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.otp-input {
+  letter-spacing: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  max-width: 180px;
+}
+
+.resend-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 0;
+  font-family: inherit;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .auth-page { grid-template-columns: 1fr; }
+  .auth-left { display: none; }
+  .auth-card { padding: 28px 20px; }
+}

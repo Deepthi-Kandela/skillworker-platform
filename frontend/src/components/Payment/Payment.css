@@ -1,0 +1,226 @@
+/* Container */
+.ps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.ps-heading {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark, #1a1a2e);
+  margin: 0 0 4px;
+  text-align: center;
+}
+
+.ps-subheading {
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.ps-subheading strong {
+  color: #6C63FF;
+  font-size: 1.1rem;
+}
+
+/* Section */
+.ps-section {
+  padding: 16px 0;
+}
+
+.ps-section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px;
+}
+
+.ps-hint {
+  font-size: 0.82rem;
+  color: #888;
+  margin: 0 0 12px;
+}
+
+/* Divider */
+.ps-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+  color: #aaa;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.ps-divider::before,
+.ps-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e5e5e5;
+}
+
+/* Buttons */
+.ps-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: inherit;
+  min-height: 50px;
+}
+
+.ps-btn-primary {
+  background: #6C63FF;
+  color: #fff;
+  width: 100%;
+}
+.ps-btn-primary:hover { background: #5a52e0; transform: translateY(-1px); }
+
+.ps-btn-confirm {
+  background: #43E97B;
+  color: #fff;
+  width: 100%;
+  font-size: 1rem;
+}
+.ps-btn-confirm:hover { background: #38d16a; }
+.ps-btn-confirm:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* UPI Buttons */
+.ps-upi-btns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.ps-btn-upi {
+  flex: 1;
+  min-width: 100px;
+  background: #fff;
+  border: 2px solid #e5e5e5;
+  color: #333;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 8px;
+  font-size: 0.8rem;
+}
+.ps-btn-upi:hover { border-color: #6C63FF; color: #6C63FF; }
+
+.ps-upi-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.ps-upi-id {
+  font-size: 0.85rem;
+  color: #555;
+  background: #f8f8ff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-top: 4px;
+}
+
+/* QR Code */
+.ps-qr-section { text-align: center; }
+
+.ps-qr-img {
+  width: 180px;
+  height: 180px;
+  border: 3px solid #6C63FF;
+  border-radius: 12px;
+  padding: 6px;
+  background: #fff;
+}
+
+/* Form */
+.ps-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ps-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ps-form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.ps-input {
+  padding: 12px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ps-input:focus { border-color: #6C63FF; }
+
+/* File Upload */
+.ps-file-input { display: none; }
+
+.ps-upload-label { cursor: pointer; }
+
+.ps-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: 2px dashed #c0b8ff;
+  border-radius: 10px;
+  background: #f8f8ff;
+  color: #6C63FF;
+  font-size: 0.9rem;
+  font-weight: 600;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+.ps-upload-btn:hover { background: #efefff; border-color: #6C63FF; }
+
+.ps-preview-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1.5px solid #e0e0e0;
+  margin-top: 8px;
+}
+
+/* Success */
+.ps-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+.ps-success-icon { font-size: 3.5rem; margin-bottom: 12px; }
+.ps-success h3 { font-size: 1.4rem; font-weight: 800; color: #1a1a2e; margin-bottom: 8px; }
+.ps-success p { color: #666; font-size: 0.95rem; line-height: 1.6; }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .ps-upi-btns { flex-direction: column; }
+  .ps-btn-upi { flex-direction: row; }
+  .ps-qr-img { width: 150px; height: 150px; }
+}

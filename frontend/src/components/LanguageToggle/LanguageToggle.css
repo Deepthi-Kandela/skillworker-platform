@@ -1,0 +1,33 @@
+.lang-toggle {
+  display: flex;
+  gap: 4px;
+  background: var(--bg);
+  padding: 4px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.lang-btn {
+  padding: 5px 12px;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: all 0.2s;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.lang-btn.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(108,99,255,0.3);
+}
+
+.lang-btn:hover:not(.active) {
+  background: rgba(108,99,255,0.08);
+  color: var(--primary);
+}

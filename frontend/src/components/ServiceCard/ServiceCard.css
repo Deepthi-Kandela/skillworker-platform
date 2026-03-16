@@ -1,0 +1,32 @@
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 12px;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  text-align: center;
+}
+.service-card:hover {
+  border-color: var(--sc-color);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.sc-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--sc-color) 12%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sc-icon { font-size: 1.8rem; }
+.sc-name { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+.sc-count { font-size: 0.75rem; color: var(--text-light); }

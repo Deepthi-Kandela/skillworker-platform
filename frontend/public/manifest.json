@@ -1,0 +1,42 @@
+{
+  "short_name": "SkillWorker",
+  "name": "SkillWorker Platform",
+  "description": "Find and book trusted local skilled workers near you",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#6C63FF",
+  "background_color": "#F0F2FF",
+  "categories": ["business", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Find Workers",
+      "url": "/search",
+      "description": "Search for skilled workers"
+    },
+    {
+      "name": "My Bookings",
+      "url": "/my-bookings",
+      "description": "View your bookings"
+    }
+  ]
+}

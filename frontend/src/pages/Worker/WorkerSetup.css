@@ -1,0 +1,54 @@
+.setup-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #F0F2FF 0%, #fff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.setup-container { width: 100%; max-width: 600px; }
+
+.setup-header { text-align: center; margin-bottom: 32px; }
+.setup-header h1 { font-size: 1.8rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.setup-header p { color: var(--text-light); }
+
+.setup-steps {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.setup-step {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  transition: all 0.3s;
+}
+.setup-step.active { background: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(108,99,255,0.3); }
+
+.setup-form { padding: 36px; }
+.setup-form h2 { font-size: 1.3rem; font-weight: 700; color: var(--dark); }
+
+.days-selector { display: flex; gap: 8px; flex-wrap: wrap; }
+.day-btn {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--bg);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  color: var(--text);
+}
+.day-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+.setup-voice-hint { margin-top: 16px; display: flex; justify-content: center; }

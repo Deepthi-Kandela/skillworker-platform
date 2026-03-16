@@ -1,0 +1,224 @@
+.wbl-page {
+  min-height: 100vh;
+  background: #f5f5ff;
+  padding: 30px 20px;
+}
+
+.wbl-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+.wbl-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 6px;
+}
+.wbl-header p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+/* Two-column layout */
+.wbl-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Card */
+.wbl-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+}
+
+.wbl-card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 20px;
+}
+
+/* Form */
+.wbl-form { display: flex; flex-direction: column; gap: 16px; }
+
+.wbl-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wbl-form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.wbl-input {
+  padding: 12px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  color: #1a1a2e;
+}
+.wbl-input:focus { border-color: #6C63FF; }
+
+.wbl-textarea { resize: vertical; min-height: 80px; }
+
+.wbl-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Location status */
+.wbl-location-status {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #fff3cd;
+  color: #856404;
+  border: 1.5px solid #ffc107;
+}
+.wbl-location-status.selected {
+  background: #d4edda;
+  color: #155724;
+  border-color: #43E97B;
+}
+
+/* Buttons */
+.wbl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.2s;
+  min-height: 48px;
+}
+
+.wbl-btn-primary {
+  background: #6C63FF;
+  color: #fff;
+  width: 100%;
+}
+.wbl-btn-primary:hover { background: #5a52e0; transform: translateY(-1px); }
+.wbl-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.wbl-btn-locate {
+  background: #fff;
+  color: #6C63FF;
+  border: 2px solid #6C63FF;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  min-height: 38px;
+  white-space: nowrap;
+}
+.wbl-btn-locate:hover { background: #f0eeff; }
+.wbl-btn-locate:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Map header */
+.wbl-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.wbl-map-hint {
+  font-size: 0.82rem;
+  color: #888;
+  margin: 0 0 12px;
+}
+
+/* Map */
+.wbl-map {
+  width: 100%;
+  height: 340px;
+  border-radius: 12px;
+  border: 1.5px solid #e0e0e0;
+  overflow: hidden;
+  background: #e8e8e8;
+}
+
+/* Coordinates */
+.wbl-coords {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+.wbl-coord-item {
+  flex: 1;
+  background: #f8f8ff;
+  border: 1.5px solid #e0d8ff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.wbl-coord-item span { font-size: 0.75rem; color: #888; font-weight: 600; text-transform: uppercase; }
+.wbl-coord-item strong { font-size: 0.95rem; color: #6C63FF; font-weight: 700; }
+
+/* Confirmation */
+.wbl-confirmed {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.wbl-confirmed-icon { font-size: 4rem; margin-bottom: 12px; }
+.wbl-confirmed h2 { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; margin-bottom: 24px; }
+
+.wbl-confirmed-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+  text-align: left;
+}
+.wbl-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #f8f8ff;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  gap: 12px;
+}
+.wbl-detail-row span { color: #666; flex-shrink: 0; }
+.wbl-detail-row strong { color: #1a1a2e; text-align: right; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .wbl-layout { grid-template-columns: 1fr; }
+  .wbl-map { height: 280px; }
+}
+
+@media (max-width: 480px) {
+  .wbl-card { padding: 20px 16px; }
+  .wbl-grid-2 { grid-template-columns: 1fr; }
+  .wbl-coords { flex-direction: column; }
+}

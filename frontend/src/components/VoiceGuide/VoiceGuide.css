@@ -1,0 +1,31 @@
+.voice-guide-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 24px;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  min-height: 44px;
+}
+
+.voice-guide-btn:hover,
+.voice-guide-btn.playing {
+  background: var(--primary);
+  color: #fff;
+}
+
+.voice-guide-btn.playing {
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(108,99,255,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(108,99,255,0); }
+}

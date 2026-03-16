@@ -1,0 +1,129 @@
+.worker-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.worker-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.worker-card-header {
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  padding: 24px 20px 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.worker-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.8);
+}
+
+.worker-badge-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-end;
+}
+
+.verified-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.avail-badge {
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.avail-badge.available { background: rgba(67,233,123,0.25); color: #fff; }
+.avail-badge.busy { background: rgba(239,68,68,0.25); color: #fff; }
+
+.worker-card-body {
+  padding: 16px 20px;
+  flex: 1;
+}
+
+.worker-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.worker-category {
+  display: inline-block;
+  background: rgba(108,99,255,0.1);
+  color: var(--primary);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.worker-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+.star-icon { color: #FFC107; }
+.rating-val { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+.rating-count { font-size: 0.82rem; color: var(--text-light); }
+
+.worker-meta {
+  display: flex;
+  gap: 14px;
+  font-size: 0.83rem;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.worker-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.worker-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.skill-tag {
+  background: var(--bg);
+  color: var(--text);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.worker-card-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.worker-rate { display: flex; align-items: baseline; gap: 3px; }
+.rate-amount { font-size: 1.3rem; font-weight: 800; color: var(--primary); }
+.rate-label { font-size: 0.82rem; color: var(--text-light); }

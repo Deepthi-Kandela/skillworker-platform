@@ -1,0 +1,124 @@
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 16px rgba(108,99,255,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark);
+}
+.brand-icon { font-size: 1.6rem; }
+.brand-text span { color: var(--primary); }
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navbar-links a {
+  font-weight: 500;
+  color: var(--text-light);
+  transition: color 0.2s;
+  font-size: 0.95rem;
+}
+.navbar-links a:hover, .navbar-links a.active { color: var(--primary); }
+
+.nav-user {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 30px;
+  background: var(--bg);
+  transition: background 0.2s;
+}
+.nav-user:hover { background: rgba(108,99,255,0.1); }
+
+.nav-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary);
+}
+
+.nav-name { font-weight: 600; font-size: 0.9rem; color: var(--dark); }
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  min-width: 180px;
+  overflow: hidden;
+  animation: fadeDown 0.2s ease;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.nav-dropdown a,
+.nav-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+.nav-dropdown a:hover, .nav-dropdown button:hover { background: var(--bg); color: var(--primary); }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0; right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .navbar-links.open { display: flex; }
+}
