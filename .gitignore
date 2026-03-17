@@ -1,8 +1,7 @@
 node_modules/
 .env
-dist/
-build/
+frontend/build/
+backend/server.log
 *.log
-*.zip
-*.mp4
-package-lock.json
+.DS_Store
+Thumbs.db
