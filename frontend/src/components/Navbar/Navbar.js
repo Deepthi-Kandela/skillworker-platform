@@ -3,7 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useTranslation } from 'react-i18next';
 import LanguageToggle from '../LanguageToggle/LanguageToggle';
-import { FiMenu, FiX, FiUser, FiLogOut, FiSettings, FiCalendar, FiMapPin } from 'react-icons/fi';
+import NotificationBell from '../NotificationBell/NotificationBell';
+import { FiMenu, FiX, FiUser, FiLogOut, FiSettings, FiCalendar, FiMapPin, FiMessageSquare, FiDollarSign } from 'react-icons/fi';
 import './Navbar.css';
 
 export default function Navbar() {
@@ -39,19 +40,28 @@ export default function Navbar() {
             </>
           )}
           {user && (
-            <div className="nav-user" onClick={() => setDropOpen(!dropOpen)}>
-              <img src={user.avatar || `https://ui-avatars.com/api/?name=${user.name}&background=6C63FF&color=fff`} alt={user.name} className="nav-avatar" />
-              <span className="nav-name">{user.name.split(' ')[0]}</span>
-              {dropOpen && (
-                <div className="nav-dropdown">
-                  <Link to="/profile" onClick={() => setDropOpen(false)}><FiUser /> Profile</Link>
-                  {user.role === 'customer' && <Link to="/my-bookings" onClick={() => setDropOpen(false)}><FiCalendar /> My Bookings</Link>}
-                  {user.role === 'customer' && <Link to="/dashboard" onClick={() => setDropOpen(false)}><FiSettings /> Dashboard</Link>}
-                  {user.role === 'worker' && <Link to="/worker/dashboard" onClick={() => setDropOpen(false)}><FiSettings /> Dashboard</Link>}
-                  {user.role === 'admin' && <Link to="/admin/dashboard" onClick={() => setDropOpen(false)}><FiSettings /> Admin Panel</Link>}
-                  <button onClick={handleLogout}><FiLogOut /> Logout</button>
-                </div>
-              )}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <NotificationBell />
+              <div className="nav-user" onClick={() => setDropOpen(!dropOpen)}>
+                <img src={user.avatar || `https://ui-avatars.com/api/?name=${user.name}&background=6C63FF&color=fff`} alt={user.name} className="nav-avatar" />
+                <span className="nav-name">{user.name.split(' ')[0]}</span>
+                {dropOpen && (
+                  <div className="nav-dropdown">
+                    <Link to="/profile" onClick={() => setDropOpen(false)}><FiUser /> Profile</Link>
+                    {user.role === 'customer' && <Link to="/my-bookings" onClick={() => setDropOpen(false)}><FiCalendar /> My Bookings</Link>}
+                    {user.role === 'customer' && <Link to="/dashboard" onClick={() => setDropOpen(false)}><FiSettings /> Dashboard</Link>}
+                    {user.role === 'customer' && <Link to="/wallet" onClick={() => setDropOpen(false)}><FiDollarSign /> Wallet</Link>}
+                    {user.role === 'customer' && <Link to="/chat" onClick={() => setDropOpen(false)}><FiMessageSquare /> Messages</Link>}
+                    {user.role === 'worker' && <Link to="/worker/dashboard" onClick={() => setDropOpen(false)}><FiSettings /> Dashboard</Link>}
+                    {user.role === 'worker' && <Link to="/wallet" onClick={() => setDropOpen(false)}><FiDollarSign /> Wallet</Link>}
+                    {user.role === 'worker' && <Link to="/chat" onClick={() => setDropOpen(false)}><FiMessageSquare /> Messages</Link>}
+                    {user.role === 'worker' && <Link to="/subscriptions" onClick={() => setDropOpen(false)}>⭐ Subscription</Link>}
+                    {user.role === 'admin' && <Link to="/admin/dashboard" onClick={() => setDropOpen(false)}><FiSettings /> Admin Panel</Link>}
+                    <Link to="/complaints" onClick={() => setDropOpen(false)}>📢 Complaints</Link>
+                    <button onClick={handleLogout}><FiLogOut /> Logout</button>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>

@@ -3,6 +3,7 @@ const Worker = require('../models/Worker');
 const User = require('../models/User');
 const { sendSMS } = require('../services/snsService');
 const { sendEmail } = require('../services/emailService');
+const { createNotification } = require('./notificationController');
 
 const createBooking = async (req, res) => {
   try {
@@ -17,6 +18,9 @@ const createBooking = async (req, res) => {
     // Email worker about new job
     const workerUser = await User.findById(booking.worker).select('email name');
     if (workerUser?.email) sendEmail(workerUser.email, 'worker_new_job', [workerUser.name, booking.service, customer?.name || 'Customer']);
+
+    // In-app notification to worker
+    await createNotification(booking.worker, '🔔 New Job Request', `${customer?.name} booked you for ${booking.service}`, 'booking', '/worker/dashboard');
 
     res.status(201).json(booking);
   } catch (err) {
@@ -58,6 +62,7 @@ const updateBookingStatus = async (req, res) => {
       // Email customer booking confirmed
       const custUser = await User.findById(booking.customer._id).select('email name');
       if (custUser?.email) sendEmail(custUser.email, 'booking_confirmed', [custUser.name, booking.service, new Date(booking.scheduledDate).toLocaleDateString(), booking.worker?.name || 'Worker']);
+      await createNotification(booking.customer._id, '✅ Booking Accepted', `Your booking for ${booking.service} has been accepted`, 'booking', '/my-bookings');
     }
 
     if (status === 'completed') {
@@ -70,6 +75,7 @@ const updateBookingStatus = async (req, res) => {
       if (booking.worker?.phone) {
         sendSMS(booking.worker.phone, 'job_completed', [booking.service], workLang);
       }
+      await createNotification(booking.customer._id, '🎉 Job Completed', `Your ${booking.service} job has been completed`, 'booking', '/my-bookings');
     }
 
     res.json(booking);

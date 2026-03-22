@@ -176,6 +176,7 @@ export default function WorkerDashboard() {
             { key: 'all',         label: t('common.all') },
             { key: 'pending',     label: t('worker.pending') },
             { key: 'accepted',    label: t('worker.accept') },
+            { key: 'on-the-way',  label: 'On The Way' },
             { key: 'in-progress', label: t('worker.start_work') },
             { key: 'completed',   label: t('worker.completed') },
           ].map(f => (
@@ -224,6 +225,11 @@ export default function WorkerDashboard() {
                     </>
                   )}
                   {b.status === 'accepted' && (
+                    <button className="wd-action-btn start" onClick={() => updateStatus(b._id, 'on-the-way')}>
+                      🚗 On The Way
+                    </button>
+                  )}
+                  {b.status === 'on-the-way' && (
                     <button className="wd-action-btn start" onClick={() => updateStatus(b._id, 'in-progress')}>
                       🚀 {t('worker.start_work')}
                     </button>

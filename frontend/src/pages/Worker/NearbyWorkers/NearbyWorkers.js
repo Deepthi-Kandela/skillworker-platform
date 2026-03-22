@@ -162,7 +162,7 @@ export default function NearbyWorkers() {
                     <span>₹{w.hourlyRate}/hr</span>
                   </div>
                 </div>
-                <button className="btn btn-primary btn-sm nearby-book-btn">Book</button>
+                <button className="btn btn-primary btn-sm nearby-book-btn" onClick={(e) => { e.stopPropagation(); navigate(`/book/${w._id}`); }}>Book</button>
               </div>
             ))}
           </div>

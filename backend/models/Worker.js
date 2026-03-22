@@ -20,6 +20,9 @@ const workerSchema = new mongoose.Schema({
   totalReviews: { type: Number, default: 0 },
   totalBookings: { type: Number, default: 0 },
   earnings: { type: Number, default: 0 },
+  isPremium: { type: Boolean, default: false },
+  premiumExpiry: { type: Date },
+  walletBalance: { type: Number, default: 0 },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Worker', workerSchema);

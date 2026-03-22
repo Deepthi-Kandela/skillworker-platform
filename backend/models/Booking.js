@@ -16,8 +16,13 @@ const bookingSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['pending', 'accepted', 'rejected', 'in-progress', 'completed', 'cancelled'],
+    enum: ['pending', 'accepted', 'rejected', 'on-the-way', 'in-progress', 'completed', 'cancelled'],
     default: 'pending',
+  },
+  isEmergency: { type: Boolean, default: false },
+  serviceLocation: {
+    lat: { type: Number },
+    lng: { type: Number },
   },
   amount: { type: Number, required: true },
   paymentMethod: { type: String, enum: ['upi', 'online', 'cash'], default: 'online' },

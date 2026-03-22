@@ -19,11 +19,11 @@ export default function CustomerDashboard() {
   useEffect(() => {
     Promise.all([
       API.get('/bookings/my'),
-      API.get('/workers/search?limit=4'),
+      API.get('/workers/recommended?limit=4'),
     ])
       .then(([bRes, wRes]) => {
         setBookings(bRes.data);
-        setWorkers(wRes.data.workers || []);
+        setWorkers(Array.isArray(wRes.data) ? wRes.data : wRes.data.workers || []);
       })
       .finally(() => setLoading(false));
   }, []);

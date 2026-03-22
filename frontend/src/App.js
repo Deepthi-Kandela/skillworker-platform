@@ -1,3 +1,4 @@
+import './App.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -17,6 +18,12 @@ import WorkerDashboard from './pages/Worker/WorkerDashboard';
 import WorkerSetup from './pages/Worker/WorkerSetup';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import BookingPage from './pages/Booking/BookingPage';
+import NotFound from './pages/NotFound';
+import ChatPage from './pages/Chat/ChatPage';
+import WalletPage from './pages/Wallet/WalletPage';
+import NotificationsPage from './pages/Notifications/NotificationsPage';
+import ComplaintsPage from './pages/Complaints/ComplaintsPage';
+import SubscriptionsPage from './pages/Subscriptions/SubscriptionsPage';
 
 const ProtectedRoute = ({ children, roles }) => {
   const { user } = useAuth();
@@ -74,7 +81,37 @@ function AppRoutes() {
           </ProtectedRoute>
         } />
 
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/chat" element={
+          <ProtectedRoute roles={['customer', 'worker']}>
+            <ChatPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/wallet" element={
+          <ProtectedRoute roles={['customer', 'worker']}>
+            <WalletPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/notifications" element={
+          <ProtectedRoute roles={['customer', 'worker', 'admin']}>
+            <NotificationsPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/complaints" element={
+          <ProtectedRoute roles={['customer', 'worker']}>
+            <ComplaintsPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/subscriptions" element={
+          <ProtectedRoute roles={['worker']}>
+            <SubscriptionsPage />
+          </ProtectedRoute>
+        } />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>

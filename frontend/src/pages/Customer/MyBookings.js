@@ -3,12 +3,14 @@ import { useTranslation } from 'react-i18next';
 import API from '../../api/axios';
 import { StatusBadge, Spinner, EmptyState } from '../../components/common';
 import Payment from '../../components/Payment/Payment';
-import { FiCalendar, FiClock, FiMapPin, FiStar, FiPackage, FiCheckCircle, FiXCircle, FiLoader } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
+import { FiCalendar, FiClock, FiMapPin, FiStar, FiPackage, FiCheckCircle, FiXCircle, FiLoader, FiMessageSquare } from 'react-icons/fi';
 import toast from 'react-hot-toast';
 import './MyBookings.css';
 
 export default function MyBookings() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [bookings, setBookings]     = useState([]);
   const [loading, setLoading]       = useState(true);
   const [filter, setFilter]         = useState('all');
@@ -143,6 +145,11 @@ export default function MyBookings() {
                 {b.description && <p className="mb-desc">{b.description}</p>}
 
                 <div className="mb-actions">
+                  {['accepted', 'in-progress', 'on-the-way'].includes(b.status) && (
+                    <button className="mb-btn primary" onClick={() => navigate('/chat')}>
+                      <FiMessageSquare size={14} /> Chat
+                    </button>
+                  )}
                   {b.status === 'pending' && (
                     <button className="mb-btn danger" onClick={() => handleCancel(b._id)}>
                       <FiXCircle size={14} /> {t('booking.cancel')}

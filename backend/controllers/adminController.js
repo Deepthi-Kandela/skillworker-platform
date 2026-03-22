@@ -2,6 +2,7 @@ const User = require('../models/User');
 const Worker = require('../models/Worker');
 const Booking = require('../models/Booking');
 const Category = require('../models/Category');
+const Complaint = require('../models/Complaint');
 
 const getDashboardStats = async (req, res) => {
   try {
@@ -24,6 +25,38 @@ const getDashboardStats = async (req, res) => {
     ]);
 
     res.json({ totalUsers, totalWorkers, totalBookings, pendingVerifications, recentBookings, revenue: revenue[0]?.total || 0 });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// Analytics: bookings per day last 7 days
+const getAnalytics = async (req, res) => {
+  try {
+    const days = 7;
+    const since = new Date();
+    since.setDate(since.getDate() - days);
+
+    const bookingsByDay = await Booking.aggregate([
+      { $match: { createdAt: { $gte: since } } },
+      { $group: { _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } }, count: { $sum: 1 }, revenue: { $sum: '$amount' } } },
+      { $sort: { _id: 1 } },
+    ]);
+
+    const usersByRole = await User.aggregate([
+      { $group: { _id: '$role', count: { $sum: 1 } } },
+    ]);
+
+    const bookingsByStatus = await Booking.aggregate([
+      { $group: { _id: '$status', count: { $sum: 1 } } },
+    ]);
+
+    const topWorkers = await Worker.find({ isVerified: true })
+      .populate('user', 'name avatar')
+      .sort({ totalBookings: -1, rating: -1 })
+      .limit(5);
+
+    res.json({ bookingsByDay, usersByRole, bookingsByStatus, topWorkers });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -80,4 +113,4 @@ const createCategory = async (req, res) => {
   }
 };
 
-module.exports = { getDashboardStats, getAllUsers, toggleUserStatus, verifyWorker, manageCategories, createCategory };
+module.exports = { getDashboardStats, getAllUsers, toggleUserStatus, verifyWorker, manageCategories, createCategory, getAnalytics };
